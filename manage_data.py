@@ -5,6 +5,7 @@ import pandas as pd
 
 from ana_stat import error_eff
 
+from  invisible_cities.io.dst_io import load_dst
 from  invisible_cities.io.dst_io import load_dsts
 from  invisible_cities.core .core_functions import in_range
 
@@ -253,3 +254,79 @@ def energy_selection(dst, opt_dict, fout, dst_out_dir, run, save=False):
         print(f'Save reduced kdst with e = [{emin,emax}]: {dir_file_name}')
 
     return dst_e
+
+
+def load_dst_for_map(fout, dir_in, run):
+    
+    frames = []
+    
+    path        = dir_in + '/' + run + '/kdst/'
+    
+    for ifile in range(0, 10000):
+        file = path + 'kdst_{0000:04n}'.format(ifile) + '_{}_trigger1_v1.2.0_20181011-19-g25d838b_demo-kdst.h5'.format(run)
+        if os.path.exists(file): 
+            dst = load_dst(file, 'DST', 'Events')  
+            frames.append(dst[(dst.R < 70) & (dst.nS1 == 1) & (dst.nS2 == 1)])
+            
+    dst = pd.concat(frames, ignore_index = True)
+    
+    return dst
+    
+
+def dst_cleaning(dst, opt_dict, fout, dst_out_dir, run, save=False):
+    
+    r_clean        = int(opt_dict["r_clean"])
+    
+    s2e_clean_min  = int(opt_dict["s2e_clean_min"])
+    s2e_clean_max  = int(opt_dict["s2e_clean_max"])
+
+    s1e_clean_min  = int(opt_dict["s1e_clean_min"])
+    s1e_clean_max  = int(opt_dict["s1e_clean_max"])
+
+    s2w_clean_min  = int(opt_dict["s2w_clean_min"])
+    s2w_clean_max  = int(opt_dict["s2w_clean_max"])
+
+    s2q_clean_min  = int(opt_dict["s2q_clean_min"])
+    s2q_clean_max  = int(opt_dict["s2q_clean_max"])
+
+    nsipm_clean_min  = int(opt_dict["nsipm_clean_min"])
+    nsipm_clean_max  = int(opt_dict["nsipm_clean_max"])
+
+    zdv_clean_min  = int(opt_dict["zdv_clean_min"])
+    zdv_clean_max  = int(opt_dict["zdv_clean_max"])
+
+    zmap_clean_min  = int(opt_dict["zmap_clean_min"])
+    zmap_clean_max  = int(opt_dict["zmap_clean_max"])
+    
+    
+    print('Data cleaning begins:\n\n     R     < {:.2f} mm\n     S2e   = [{:.2f}, {:.2f}] pes\n     S1e   = [{:.2f}, {:.2f}] pes\n     S2w   = [{:.2f}, {:.2f}] \u03BCs\n     S2q   = [{:.2f}, {:.2f}] pes\n     Nsipm = [{:.2f}, {:.2f}]\n     Z_map = [{:.2f}, {:.2f}] mm\n     Z_dv  = [{:.2f}, {:.2f}] mm\n'
+          .format(r_clean, s2e_clean_min, s2e_clean_max, s1e_clean_min, s1e_clean_max, s2w_clean_min, s2w_clean_max, s2q_clean_min, s2q_clean_max, nsipm_clean_min, nsipm_clean_max, 
+                 zmap_clean_min, zmap_clean_max, zdv_clean_min, zdv_clean_max))
+    
+    mask_r     = in_range(dst.R, 0, r_clean)
+    
+    mask_s2e   = in_range(dst.S2e, s2e_clean_min, s2e_clean_max)
+    mask_s1e   = in_range(dst.S1e, s1e_clean_min, s1e_clean_max)
+    mask_s2w   = in_range(dst.S2w, s2w_clean_min, s2w_clean_max)
+    mask_s2q   = in_range(dst.S2q, s2q_clean_min, s2q_clean_max)
+    mask_nsipm = in_range(dst.Nsipm, nsipm_clean_min, nsipm_clean_max)
+    mask_zdv   = in_range(dst.Z, zdv_clean_min, zdv_clean_max)
+    mask_zmap  = in_range(dst.Z, zmap_clean_min, zmap_clean_max)
+
+    dst_dv     = dst[(mask_r) & (mask_s2e) & (mask_s1e) & (mask_s2w) & (mask_s2q) & (mask_nsipm) & (mask_zdv)]
+    dst_map    = dst[(mask_r) & (mask_s2e) & (mask_s1e) & (mask_s2w) & (mask_s2q) & (mask_nsipm) & (mask_zmap)]
+    
+    print('Data cleaning ended:\n\n     R     < {:.2f} mm\n     S2e   = [{:.2f}, {:.2f}] pes\n     S1e   = [{:.2f}, {:.2f}] pes\n     S2w   = [{:.2f}, {:.2f}] \u03BCs\n     S2q   = [{:.2f}, {:.2f}] pes\n     Nsipm = [{:.2f}, {:.2f}]\n     Z_map = [{:.2f}, {:.2f}] mm\n     Z_dv  = [{:.2f}, {:.2f}] mm\n'
+          .format(np.max(dst_map.R), np.min(dst_map.S2e), np.max(dst_map.S2e), np.min(dst_map.S1e), np.max(dst_map.S1e), np.min(dst_map.S2w), np.max(dst_map.S2w), np.min(dst_map.S2q), np.max(dst_map.S2q), np.min(dst_map.Nsipm), np.max(dst.Nsipm), np.min(dst_map.Z), np.max(dst_map.Z), np.min(dst_dv.Z), np.max(dst_dv.Z)))
+  
+    
+    if save:
+        dir_file_name_1 = f'{dst_out_dir}/reduced_{run}_kdst_cleaned_map.h5'
+        dir_file_name_2 = f'{dst_out_dir}/reduced_{run}_kdst_cleaned_dv.h5'
+        save_dst_to_file(dst_map, dir_file_name_1)
+        save_dst_to_file(dst_dv, dir_file_name_2)
+        print(f'Save reduced kdst for map production: {dir_file_name_1}')
+        print(f'Save reduced kdst for dv computation: {dir_file_name_2}')
+    
+    return dst_dv, dst_map
+

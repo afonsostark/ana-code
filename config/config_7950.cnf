@@ -1,17 +1,19 @@
 [Defaults]
-dir_in  = /Users/neus/DEMO++/work-2020/data/
+dir_in  = /home/afonso/data/
 data_type = kdst
 
-dir_out = /Users/neus/DEMO++/work-2020/ana-results
+dir_out = /home/afonso/data/results
 
 file_in = kdst_40.h5
 label_file_plots = s1s2_plots.pdf
 
-fit_type = FitType.unbined
+fit_type = FitType.profile
 
-run     = 7950
-rmax   = 70
-rfid    = 40
+run      = 7950
+rmax     = 70
+rfid     = 40
+
+nmin    = 60
 
 fit_e_min = 9800
 fit_e_max = 11000
@@ -20,7 +22,7 @@ fit_seed  = 10400
 fit_z_min  = 325
 fit_z_max  = 348
 
-xy_num_bins = 20
+xy_num_bins = 40
 
 time_bin = 20
 z_bin    = 15
@@ -32,6 +34,8 @@ dt_sig_max = 350
 dt_min = 0
 dt_max = 350
 dt_bin = 50
+
+
 
 ## s1
 s1e_min = 0
@@ -74,3 +78,36 @@ nsipm_all_bin = 257
 nsipm_min = 0
 nsipm_max = 40
 nsipm_bin = 41
+
+chi2_min = 0
+chi2_max = 4
+
+time_evo = 3600
+
+nbins_dv = 35
+
+
+## Cleaning variables
+
+r_clean        = 60
+
+s2e_clean_min  = 9000
+s2e_clean_max  = 11000
+
+s1e_clean_min  = 3
+s1e_clean_max  = 25
+
+s2w_clean_min  = 4
+s2w_clean_max  = 15
+
+s2q_clean_min  = 350
+s2q_clean_max  = 650
+
+nsipm_clean_min  = 15
+nsipm_clean_max  = 34
+
+zdv_clean_min  = 15
+zdv_clean_max  = 400
+
+zmap_clean_min  = 15
+zmap_clean_max  = 320

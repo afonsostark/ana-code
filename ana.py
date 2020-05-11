@@ -17,6 +17,8 @@ from ana_s1_s2_control_plots    import ana_time_evol_and_map_plots
 from detector_corrections       import write_map_to_file
 from ana_apply_corr_plot_ereso  import ana_apply_corr_plot_ereso
 
+from map_builder.ana_create_kdst_map import ana_create_kdst_map
+from map_builder.map_builder         import map_creation, time_evolution_computation
 
 
 print("Last updated on ", time.asctime())
@@ -54,16 +56,18 @@ def main(args = None):
     fout = open(fout_name,'w')
     #fout.write(f"----------  Summary of run {run}  ----------\n")
     fout.write(f'run {run}\n')
-    dst_full, dst_s1s2, dst_r, dst_e = ana_create_reduced_and_efi(fout, dst_out_dir, plots_dir, dir_input, run, opt_dict)
+#     dst_full, dst_s1s2, dst_r, dst_e, dst_map, dst_dv = ana_create_reduced_and_efi(fout, dst_out_dir, plots_dir, dir_input, run, opt_dict)
     #ana_s1_s2_control_plots(dst_full, fout, plots_dir, opt_dict, 'run'+str(run)+'_full_',                   'full')
-    ana_s1_s2_control_plots(dst_s1s2, fout, plots_dir, opt_dict, 'run'+str(run)+'_s1s2_rmax'+str(rmax)+'_', 's1s2')
-    ana_s1_s2_control_plots(dst_r,    fout, plots_dir, opt_dict, 'run'+str(run)+'_rfid'+str(rfid)+'_',      'rfid')
-    ana_s1_s2_control_plots(dst_e,    fout, plots_dir, opt_dict, 'run'+str(run)+'_esig_',                   'esig')
+#     ana_s1_s2_control_plots(dst_s1s2, fout, plots_dir, opt_dict, 'run'+str(run)+'_s1s2_rmax'+str(rmax)+'_', 's1s2')
+#     ana_s1_s2_control_plots(dst_r,    fout, plots_dir, opt_dict, 'run'+str(run)+'_rfid'+str(rfid)+'_',      'rfid')
+#     ana_s1_s2_control_plots(dst_e,    fout, plots_dir, opt_dict, 'run'+str(run)+'_esig_',                   'esig')
+
+
 
     ##
     #dst = pd.read_hdf(file_in)
     #print(file_in)
-    ana_v_ereso_lt_raw(dst_r, fout, plots_dir, opt_dict)
+#     ana_v_ereso_lt_raw(dst_r, fout, plots_dir, opt_dict)
 
     #------ Analisis: read reduced dst and make plots -------
     #dst = pd.read_hdf(file_in)
@@ -86,6 +90,14 @@ def main(args = None):
     #print(f'Events in dst : {str(dst.event.nunique())}')
     #print('Reading reduced ntuple in: ' + file_in)
     #ana_apply_corr_plot_ereso(dst, opt_dict, plots_dir)
+    
+    
+    #------ Analysis: create kdst cleaned for map creation -------
+    dst_dv, dst_map = ana_create_kdst_map(fout, dst_out_dir, plots_dir, dir_input, run, opt_dict)
+    
+    regularized_maps = map_creation(dst_map, opt_dict)
+        
+    time_evolution_computation(dst_dv, regularized_maps, dir_out, opt_dict)
 
 
     #------ Analisis: E reso vs R and Z ------
