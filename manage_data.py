@@ -9,6 +9,10 @@ from  invisible_cities.io.dst_io import load_dst
 from  invisible_cities.io.dst_io import load_dsts
 from  invisible_cities.core .core_functions import in_range
 
+from invisible_cities.reco.corrections       import apply_all_correction
+
+from krcal.map_builder.map_builder_functions import e0_xy_correction
+
 def save_dst_to_file(dst, dir_file):
     """
     Input path and file name to write a dst
@@ -38,10 +42,11 @@ def create_dirs(dir):
     '''
 
     # big production
-    overwrite = 'y'
+    overwrite = 'n'
 
-    if os.path.exists(dir) and overwrite:
-        shutil.rmtree(dir)
+#     if os.path.exists(dir) 
+#     and overwrite:
+#         shutil.rmtree(dir)
     try:
         os.makedirs(dir)
     except OSError:
@@ -249,6 +254,7 @@ def energy_selection(dst, opt_dict, fout, dst_out_dir, run, save=False):
     fout.write(f'rel_eff_e_u {error_eff(tot_ev, eff)*100:.5f}\n')
 
     if save:
+        
         dir_file_name = f'{dst_out_dir}/reduced_{run}_kdst_emin{emin}_emax{emax}.h5'
         save_dst_to_file(dst_e, dir_file_name)
         print(f'Save reduced kdst with e = [{emin,emax}]: {dir_file_name}')
@@ -256,24 +262,122 @@ def energy_selection(dst, opt_dict, fout, dst_out_dir, run, save=False):
     return dst_e
 
 
-def load_dst_for_map(fout, dir_in, run):
+def load_runs_parameter(opt_dict):
+    """
+    Input the config file
+    Returns dst a list of the runs for later directory creation, dst loading, ...
+    """
     
-    frames = []
     
-    path        = dir_in + '/' + run + '/kdst/'
+    runs_to_load = opt_dict["runs"] # if we load like this, it will load character by character
+                                    # which means, for example, if in the config file runs = [7949, 7950],
+                                    # print(runs_to_load) = ['[', 7', '9', '4', '9', ',', ' ', '7', '9', '5', '0', ']']
+    runs = []
     
-    for ifile in range(0, 10000):
-        file = path + 'kdst_{0000:04n}'.format(ifile) + '_{}_trigger1_v1.2.0_20181011-19-g25d838b_demo-kdst.h5'.format(run)
-        if os.path.exists(file): 
-            dst = load_dst(file, 'DST', 'Events')  
-            frames.append(dst[(dst.R < 70) & (dst.nS1 == 1) & (dst.nS2 == 1)])
+    for i in runs_to_load:
+        if i.isnumeric():
+            runs.append(i)         # to remove the commas and the brackets 
             
-    dst = pd.concat(frames, ignore_index = True)
+    runs = ''.join(runs)
+    runs = [runs[i : i + 4] for i in range(0, len(runs), 4)] # to join the individual strings (we suppose that the runs are in format xxxx)
+       
+    return runs
+        
+
+
+def load_dst_for_map(dir_in, opt_dict, save):
+    """
+    Input a directory where dsts are stored, a config file and a boolean to choose if the merged dst are saved
+    """
     
-    return dst
+    runs = load_runs_parameter(opt_dict)
+    
+    print('\nRuns to load:', runs, '\n')
+
+    for run in runs:
+        
+        frames = []
+
+        path = dir_in + run + '/kdst/'
+            
+        for ifile in range(0, 10000):
+            file = path + 'kdst_{0000:04n}'.format(ifile) + '_{}_trigger1_v1.2.0_20181011-19-g25d838b_demo-kdst.h5'.format(run)
+            if os.path.exists(file): 
+                dst = load_dst(file, 'DST', 'Events')  
+                frames.append(dst[(dst.R < 70) & (dst.nS1 == 1) & (dst.nS2 == 1)])
+
+        dst = pd.concat(frames, ignore_index = True)
+    
+        dst_out_dir = dir_in + 'results/' + run + '/kdst-reduced'
+        
+        if save:
+            create_dirs(dir_in + 'results/' + run)
+            create_dirs(dst_out_dir)
+            dir_file_name = f'{dst_out_dir}/kdst_tot_{run}.h5'
+            save_dst_to_file(dst, dir_file_name)
+            print(f'Run {run} with nS1 ans nS2 = 1 saved in: {dir_file_name}')
+            
+        del dst, frames
+
+
+def check_if_dst_exists(dir_in, opt_dict):
+    """
+    Input a directory where dst is and a config file
+    Checks if the merged dst already exists, to save map creation time
+    """
+    
+    runs = load_runs_parameter(opt_dict)
+    
+    check = []
+    
+    for run in runs:
+        file = dir_in + 'results/' + run + '/kdst-reduced/kdst_tot_' + run + '.h5'
+        if os.path.exists(file):
+            check.append(True)
+            print('\n Run {} merged file already exists'.format(run))
+        else:
+            check.append(False)
+            print('\nRun {} merged file does not exists'.format(run))
+            
+    print('')
+    
+    return check
+
+
+
+def merge_dst_for_map_production(dir_in, opt_dict):
+    """
+    Input a directory where dst is and a config file
+    Returns the dsts for the desired runs
+    """
+    
+    frames_kdst = []
+    max_evt = 0
+    
+    runs = load_runs_parameter(opt_dict)
+
+    for index, run in enumerate(runs):
+        file = dir_in + 'results/' + run + '/kdst-reduced/kdst_tot_' + run + '.h5'
+        if os.path.exists(file):
+            kdst = load_dst(file, 'dataframe', 'table')
+            kdst['eventID'] = kdst.event
+            kdst.event = kdst.event + max_evt
+            run_column = [run] * len(kdst)
+            kdst['run_number'] = run_column
+            print(f'Events in {file} = {kdst.event.nunique()}')
+            frames_kdst.append(kdst)
+            max_evt = kdst.event.max() + 1
+            kdst_all = pd.concat(frames_kdst, ignore_index=True)
+            print(f'Events in the merge of {run} = {kdst_all.event.nunique()}')
+            
+    return kdst_all
     
 
-def dst_cleaning(dst, opt_dict, fout, dst_out_dir, run, save=False):
+def dst_cleaning(dst, opt_dict):
+    """
+    Input the dst and a config file
+    Returns the dst cleaned in several variables for map production and time evolution computation
+    """
     
     r_clean        = int(opt_dict["r_clean"])
     
@@ -309,7 +413,7 @@ def dst_cleaning(dst, opt_dict, fout, dst_out_dir, run, save=False):
     mask_s1e   = in_range(dst.S1e, s1e_clean_min, s1e_clean_max)
     mask_s2w   = in_range(dst.S2w, s2w_clean_min, s2w_clean_max)
     mask_s2q   = in_range(dst.S2q, s2q_clean_min, s2q_clean_max)
-    mask_nsipm = in_range(dst.Nsipm, nsipm_clean_min, nsipm_clean_max)
+    mask_nsipm = in_range(dst.Nsipm, nsipm_clean_min + 1, nsipm_clean_max + 1)
     mask_zdv   = in_range(dst.Z, zdv_clean_min, zdv_clean_max)
     mask_zmap  = in_range(dst.Z, zmap_clean_min, zmap_clean_max)
 
@@ -317,16 +421,24 @@ def dst_cleaning(dst, opt_dict, fout, dst_out_dir, run, save=False):
     dst_map    = dst[(mask_r) & (mask_s2e) & (mask_s1e) & (mask_s2w) & (mask_s2q) & (mask_nsipm) & (mask_zmap)]
     
     print('Data cleaning ended:\n\n     R     < {:.2f} mm\n     S2e   = [{:.2f}, {:.2f}] pes\n     S1e   = [{:.2f}, {:.2f}] pes\n     S2w   = [{:.2f}, {:.2f}] \u03BCs\n     S2q   = [{:.2f}, {:.2f}] pes\n     Nsipm = [{:.2f}, {:.2f}]\n     Z_map = [{:.2f}, {:.2f}] mm\n     Z_dv  = [{:.2f}, {:.2f}] mm\n'
-          .format(np.max(dst_map.R), np.min(dst_map.S2e), np.max(dst_map.S2e), np.min(dst_map.S1e), np.max(dst_map.S1e), np.min(dst_map.S2w), np.max(dst_map.S2w), np.min(dst_map.S2q), np.max(dst_map.S2q), np.min(dst_map.Nsipm), np.max(dst.Nsipm), np.min(dst_map.Z), np.max(dst_map.Z), np.min(dst_dv.Z), np.max(dst_dv.Z)))
+          .format(np.max(dst_map.R), np.min(dst_map.S2e), np.max(dst_map.S2e), np.min(dst_map.S1e), np.max(dst_map.S1e), np.min(dst_map.S2w), np.max(dst_map.S2w), np.min(dst_map.S2q), np.max(dst_map.S2q), np.min(dst_map.Nsipm), np.max(dst_map.Nsipm), np.min(dst_map.Z), np.max(dst_map.Z), np.min(dst_dv.Z), np.max(dst_dv.Z)))
   
-    
-    if save:
-        dir_file_name_1 = f'{dst_out_dir}/reduced_{run}_kdst_cleaned_map.h5'
-        dir_file_name_2 = f'{dst_out_dir}/reduced_{run}_kdst_cleaned_dv.h5'
-        save_dst_to_file(dst_map, dir_file_name_1)
-        save_dst_to_file(dst_dv, dir_file_name_2)
-        print(f'Save reduced kdst for map production: {dir_file_name_1}')
-        print(f'Save reduced kdst for dv computation: {dir_file_name_2}')
     
     return dst_dv, dst_map
 
+
+def dst_correction_with_map(dst, maps):
+    """
+    Input a dst and a map
+    Returns the correction factor
+    """
+    
+    geom_corr = e0_xy_correction(maps)
+
+    total_correction = apply_all_correction(maps, apply_temp = True)
+
+    corr_geo = geom_corr(dst.X, dst.Y)
+    
+    corr_tot = total_correction(dst.X, dst.Y, dst.Z, dst.time)
+    
+    return corr_tot

@@ -13,11 +13,20 @@ from krcal.core.io_functions                  import write_complete_maps
 from krcal.core.map_functions                 import add_mapinfo
 
 from invisible_cities.core. core_functions    import in_range
+from map_builder.plots                        import control_plots, time_evolution_plots
+
+from manage_data                              import load_runs_parameter
 
 
 def map_creation(dst, opt_dict):
+    """
+    Input a dst and config file for map creation
+    Returns the regularized map for after-time evolution computation
+    """
+    
 
-    run           = int(opt_dict['run'])
+    runs          = load_runs_parameter(opt_dict)
+    run           = runs[0]
     rmax          = int(opt_dict['rmax'])
     xy_num_bins   = int(opt_dict['xy_num_bins'])
     
@@ -47,7 +56,7 @@ def map_creation(dst, opt_dict):
                                        chi2_max)      ,
                          lt_range   = (0, 1)          , 
                          fit_type   = fit_type        ,
-                         nmin       = nmin            ,
+                         nmin       = nmin             ,
                          x_range    = (-60, 60)       ,
                          y_range    = (-60, 60)       )
     
@@ -85,7 +94,19 @@ def map_creation(dst, opt_dict):
     
     return regularized_maps
 
+
 def time_evolution_computation(dst, maps, dir_out, opt_dict):
+    """
+    Input a dst, a map, a directory path and config file for time evolution computation
+    Returns the map with time evolution
+    """
+    
+    runs          = load_runs_parameter(opt_dict)
+    
+    label         = ''
+    
+    for run in runs:
+        label     += str(run) + '_'
     
     time_evo      = int(opt_dict['time_evo'])
     xy_num_bins   = int(opt_dict['xy_num_bins'])
@@ -115,12 +136,17 @@ def time_evolution_computation(dst, maps, dir_out, opt_dict):
                zrange_dv     = (300, 380)           ,
                nbins_dv      = nbins_dv             )
         
-    map_file_out = dir_out + '/kr_map_{}bins_{}.h5'.format(xy_num_bins, fit_type.split('.')[-1])
+    map_file_out = dir_out + '/kr_map_{}{}bins_{}.h5'.format(label,xy_num_bins, fit_type.split('.')[-1])
+    
 
     write_complete_maps(asm      = maps        ,
                         filename = map_file_out)
     
+    
     print('\nTime evolution added and final map saved in {}\n'.format(map_file_out))
+    
+    return maps
+    
     
     
 

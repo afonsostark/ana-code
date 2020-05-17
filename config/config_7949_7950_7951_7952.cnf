@@ -9,11 +9,17 @@ label_file_plots = s1s2_plots.pdf
 
 fit_type = FitType.profile
 
-run      = 7950
+run      = 7949
+
+runs     = [7949, 7950, 7951, 7952]
 rmax     = 70
 rfid     = 40
 
-nmin    = 60
+nmin    = 350
+
+bins_res = 35
+fit_min_res = 10100
+fit_max_res = 11200
 
 fit_e_min = 9800
 fit_e_max = 11000
@@ -34,8 +40,6 @@ dt_sig_max = 350
 dt_min = 0
 dt_max = 350
 dt_bin = 50
-
-
 
 ## s1
 s1e_min = 0
@@ -89,7 +93,7 @@ nbins_dv = 35
 
 ## Cleaning variables
 
-r_clean        = 60
+r_clean        = 61
 
 s2e_clean_min  = 9000
 s2e_clean_max  = 11000

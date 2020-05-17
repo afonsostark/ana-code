@@ -35,11 +35,11 @@ def ana_v_ereso_lt_raw(dst, fout, plots_dir, opt_dict):
 
 def energy_resolution(dst, fout, plots_dir, opt_dict):
 
-    run              = opt_dict["run"]
+    run         = opt_dict["run"]
     fit_e_min   = float(opt_dict["fit_e_min"])
     fit_e_max   = float(opt_dict["fit_e_max"])
     fit_seed    = float(opt_dict["fit_seed"])
-    fit_erange = (fit_e_min, fit_e_max)
+    fit_erange  = (fit_e_min, fit_e_max)
 
     chi2_func = BinnedChi2(gaussC, dst.S2e, bins = 50 , bound = fit_erange)
     m = Minuit(chi2_func, mu = fit_seed, sigma = 90, N = 10, Ny = 0)
@@ -58,9 +58,9 @@ def energy_resolution(dst, fout, plots_dir, opt_dict):
 
     print(f'Resolution = {reso}')
     plt.savefig(f'{plots_dir}/fit_energy_reso_{run}.pdf')
-    plt.savefig(f'/Users/neus/current-work/ana-reso/fit_energy_reso_{run}.pdf')
+#     plt.savefig(f'/Users/neus/current-work/ana-reso/fit_energy_reso_{run}.pdf')
     print(f'plots saved in {plots_dir}fit_energy_reso_{run}.pdf')
-    print(f'plots saved in /Users/neus/current-work/ana-reso/fit_energy_reso_{run}.pdf')
+#     print(f'plots saved in /Users/neus/current-work/ana-reso/fit_energy_reso_{run}.pdf')
 
     return fig, reso, chi2_val, mean, mean_u
 
