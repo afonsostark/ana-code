@@ -125,42 +125,47 @@ def main(args = None):
     #------ Analysis: create kdst cleaned for map creation, creates map with N runs  -------
     
     dst, dst_dv, dst_map = ana_create_kdst_map(dir_input, opt_dict)
-    
+    dst_map_first_run = dst_map[pd.to_numeric(dst_map.run_number) == int(runs[0])] 
     control_plots_before_maps(dst, dst[dst.R < 60], dst_map, plots_dir_2, opt_dict)
+    
     
     # memory management
     
     del dst
     
-    maps = map_creation(dst_map, opt_dict)
-    
+    maps = map_creation(dst_map, opt_dict)    
     maps_1 = time_evolution_computation(dst_dv, maps, plots_dir_2, opt_dict)
     
     corr_tot = dst_correction_with_map(dst_map, maps_1)
+    corr_tot_first_run = dst_correction_with_map(dst_map_first_run, maps_1)
   
     control_plots_after_map(dst_map, maps_1, corr_tot, plots_dir_2, opt_dict)
 
     
     plt.close('all')
-    
-    
+        
     fig_1 = energy_fits(gaussC, dst_map[dst_map.R < 55], corr_tot, opt_dict)
     
     fig_2 = energy_fits(gaussC, dst_map[dst_map.R < 60], corr_tot, opt_dict)
+    
+    fig_3 = energy_fits(gaussC, dst_map_first_run[dst_map_first_run.R < 55], corr_tot_first_run, opt_dict)
+    
+    fig_4 = energy_fits(gaussC, dst_map_first_run[dst_map_first_run.R < 60], corr_tot_first_run, opt_dict)
 
     
     pp = PdfPages(plots_dir_2 + '/fits_until_55_60')
-
     pp.savefig(fig_1)
     pp.savefig(fig_2)
+    pp.savefig(fig_3)
+    pp.savefig(fig_4)
     pp.close()
     
     
-    plt.close('all')
+#     plt.close('all')
     
-    reso_list_ring = energy_reso_vs_z_r(dst_map, corr_tot, plots_dir_2 + '/resolution_fits_ring', plots_dir_2 + '/resolution_overall_ring', opt_dict, ring = 'yes')
+#     reso_list_ring = energy_reso_vs_z_r(dst_map, corr_tot, plots_dir_2 + '/resolution_fits_ring', plots_dir_2 + '/resolution_overall_ring', opt_dict, ring = 'yes')
     
-    reso_list_disk = energy_reso_vs_z_r(dst_map, corr_tot, plots_dir_2 + '/resolution_fits_disk', plots_dir_2 + '/resolution_overall_disk', opt_dict, ring = 'no')
+#     reso_list_disk = energy_reso_vs_z_r(dst_map, corr_tot, plots_dir_2 + '/resolution_fits_disk', plots_dir_2 + '/resolution_overall_disk', opt_dict, ring = 'no')
     
 
     #------ Analisis: E reso vs R and Z ------

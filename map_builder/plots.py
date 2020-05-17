@@ -815,879 +815,879 @@ def control_plots_after_map(dst, maps, corr_tot, plots_dir, opt_dict):
     
 
     
-# def worse_best_res(reso_list_1_ring, reso_list_1_disk, reso_list_2_ring, reso_list_2_disk, reso_list_4_ring, reso_list_4_disk, reso_list_4_4_ring, reso_list_4_4_disk):
+def worse_best_res(reso_list_1_ring, reso_list_1_disk, reso_list_2_ring, reso_list_2_disk, reso_list_4_ring, reso_list_4_disk, reso_list_4_4_ring, reso_list_4_4_disk):
     
-#     r = [30,35,40,45,50,55,60]
-#     z = [70,120,170,220,270,320]
+    r = [30,35,40,45,50,55,60]
+    z = [70,120,170,220,270,320]
     
-#     same_Z_70_ring_1   = [reso_list_1_ring[i] for i in [0,6,12,18,24,30,36]]
-#     same_Z_120_ring_1  = [reso_list_1_ring[i] for i in [1,7,13,19,25,31,37]]
-#     same_Z_170_ring_1  = [reso_list_1_ring[i] for i in [2,8,14,20,26,32,38]]
-#     same_Z_220_ring_1  = [reso_list_1_ring[i] for i in [3,9,15,21,27,33,39]]
-#     same_Z_270_ring_1  = [reso_list_1_ring[i] for i in [4,10,16,22,28,34,40]]
-#     same_Z_320_ring_1  = [reso_list_1_ring[i] for i in [5,11,17,23,29,35,41]]
+    same_Z_70_ring_1   = [reso_list_1_ring[i] for i in [0,6,12,18,24,30,36]]
+    same_Z_120_ring_1  = [reso_list_1_ring[i] for i in [1,7,13,19,25,31,37]]
+    same_Z_170_ring_1  = [reso_list_1_ring[i] for i in [2,8,14,20,26,32,38]]
+    same_Z_220_ring_1  = [reso_list_1_ring[i] for i in [3,9,15,21,27,33,39]]
+    same_Z_270_ring_1  = [reso_list_1_ring[i] for i in [4,10,16,22,28,34,40]]
+    same_Z_320_ring_1  = [reso_list_1_ring[i] for i in [5,11,17,23,29,35,41]]
     
-#     same_Z_70_disk_1   = [reso_list_1_disk[i] for i in [0,6,12,18,24,30,36]]
-#     same_Z_120_disk_1  = [reso_list_1_disk[i] for i in [1,7,13,19,25,31,37]]
-#     same_Z_170_disk_1  = [reso_list_1_disk[i] for i in [2,8,14,20,26,32,38]]
-#     same_Z_220_disk_1  = [reso_list_1_disk[i] for i in [3,9,15,21,27,33,39]]
-#     same_Z_270_disk_1  = [reso_list_1_disk[i] for i in [4,10,16,22,28,34,40]]
-#     same_Z_320_disk_1  = [reso_list_1_disk[i] for i in [5,11,17,23,29,35,41]]
-    
-    
-    
-#     same_Z_70_ring_2   = [reso_list_2_ring[i] for i in [0,6,12,18,24,30,36]]
-#     same_Z_120_ring_2  = [reso_list_2_ring[i] for i in [1,7,13,19,25,31,37]]
-#     same_Z_170_ring_2  = [reso_list_2_ring[i] for i in [2,8,14,20,26,32,38]]
-#     same_Z_220_ring_2  = [reso_list_2_ring[i] for i in [3,9,15,21,27,33,39]]
-#     same_Z_270_ring_2  = [reso_list_2_ring[i] for i in [4,10,16,22,28,34,40]]
-#     same_Z_320_ring_2  = [reso_list_2_ring[i] for i in [5,11,17,23,29,35,41]]
-    
-#     same_Z_70_disk_2   = [reso_list_2_disk[i] for i in [0,6,12,18,24,30,36]]
-#     same_Z_120_disk_2  = [reso_list_2_disk[i] for i in [1,7,13,19,25,31,37]]
-#     same_Z_170_disk_2  = [reso_list_2_disk[i] for i in [2,8,14,20,26,32,38]]
-#     same_Z_220_disk_2  = [reso_list_2_disk[i] for i in [3,9,15,21,27,33,39]]
-#     same_Z_270_disk_2  = [reso_list_2_disk[i] for i in [4,10,16,22,28,34,40]]
-#     same_Z_320_disk_2  = [reso_list_2_disk[i] for i in [5,11,17,23,29,35,41]]
+    same_Z_70_disk_1   = [reso_list_1_disk[i] for i in [0,6,12,18,24,30,36]]
+    same_Z_120_disk_1  = [reso_list_1_disk[i] for i in [1,7,13,19,25,31,37]]
+    same_Z_170_disk_1  = [reso_list_1_disk[i] for i in [2,8,14,20,26,32,38]]
+    same_Z_220_disk_1  = [reso_list_1_disk[i] for i in [3,9,15,21,27,33,39]]
+    same_Z_270_disk_1  = [reso_list_1_disk[i] for i in [4,10,16,22,28,34,40]]
+    same_Z_320_disk_1  = [reso_list_1_disk[i] for i in [5,11,17,23,29,35,41]]
     
     
     
-#     same_Z_70_ring_4   = [reso_list_4_ring[i] for i in [0,6,12,18,24,30,36]]
-#     same_Z_120_ring_4  = [reso_list_4_ring[i] for i in [1,7,13,19,25,31,37]]
-#     same_Z_170_ring_4  = [reso_list_4_ring[i] for i in [2,8,14,20,26,32,38]]
-#     same_Z_220_ring_4  = [reso_list_4_ring[i] for i in [3,9,15,21,27,33,39]]
-#     same_Z_270_ring_4  = [reso_list_4_ring[i] for i in [4,10,16,22,28,34,40]]
-#     same_Z_320_ring_4  = [reso_list_4_ring[i] for i in [5,11,17,23,29,35,41]]
+    same_Z_70_ring_2   = [reso_list_2_ring[i] for i in [0,6,12,18,24,30,36]]
+    same_Z_120_ring_2  = [reso_list_2_ring[i] for i in [1,7,13,19,25,31,37]]
+    same_Z_170_ring_2  = [reso_list_2_ring[i] for i in [2,8,14,20,26,32,38]]
+    same_Z_220_ring_2  = [reso_list_2_ring[i] for i in [3,9,15,21,27,33,39]]
+    same_Z_270_ring_2  = [reso_list_2_ring[i] for i in [4,10,16,22,28,34,40]]
+    same_Z_320_ring_2  = [reso_list_2_ring[i] for i in [5,11,17,23,29,35,41]]
     
-#     same_Z_70_disk_4   = [reso_list_4_disk[i] for i in [0,6,12,18,24,30,36]]
-#     same_Z_120_disk_4  = [reso_list_4_disk[i] for i in [1,7,13,19,25,31,37]]
-#     same_Z_170_disk_4  = [reso_list_4_disk[i] for i in [2,8,14,20,26,32,38]]
-#     same_Z_220_disk_4  = [reso_list_4_disk[i] for i in [3,9,15,21,27,33,39]]
-#     same_Z_270_disk_4  = [reso_list_4_disk[i] for i in [4,10,16,22,28,34,40]]
-#     same_Z_320_disk_4  = [reso_list_4_disk[i] for i in [5,11,17,23,29,35,41]]
-    
-    
+    same_Z_70_disk_2   = [reso_list_2_disk[i] for i in [0,6,12,18,24,30,36]]
+    same_Z_120_disk_2  = [reso_list_2_disk[i] for i in [1,7,13,19,25,31,37]]
+    same_Z_170_disk_2  = [reso_list_2_disk[i] for i in [2,8,14,20,26,32,38]]
+    same_Z_220_disk_2  = [reso_list_2_disk[i] for i in [3,9,15,21,27,33,39]]
+    same_Z_270_disk_2  = [reso_list_2_disk[i] for i in [4,10,16,22,28,34,40]]
+    same_Z_320_disk_2  = [reso_list_2_disk[i] for i in [5,11,17,23,29,35,41]]
     
     
-#     same_Z_70_ring_4_4   = [reso_list_4_4_ring[i] for i in [0,6,12,18,24,30,36]]
-#     same_Z_120_ring_4_4  = [reso_list_4_4_ring[i] for i in [1,7,13,19,25,31,37]]
-#     same_Z_170_ring_4_4  = [reso_list_4_4_ring[i] for i in [2,8,14,20,26,32,38]]
-#     same_Z_220_ring_4_4  = [reso_list_4_4_ring[i] for i in [3,9,15,21,27,33,39]]
-#     same_Z_270_ring_4_4  = [reso_list_4_4_ring[i] for i in [4,10,16,22,28,34,40]]
-#     same_Z_320_ring_4_4  = [reso_list_4_4_ring[i] for i in [5,11,17,23,29,35,41]]
     
-#     same_Z_70_disk_4_4   = [reso_list_4_4_disk[i] for i in [0,6,12,18,24,30,36]]
-#     same_Z_120_disk_4_4  = [reso_list_4_4_disk[i] for i in [1,7,13,19,25,31,37]]
-#     same_Z_170_disk_4_4  = [reso_list_4_4_disk[i] for i in [2,8,14,20,26,32,38]]
-#     same_Z_220_disk_4_4  = [reso_list_4_4_disk[i] for i in [3,9,15,21,27,33,39]]
-#     same_Z_270_disk_4_4  = [reso_list_4_4_disk[i] for i in [4,10,16,22,28,34,40]]
-#     same_Z_320_disk_4_4  = [reso_list_4_4_disk[i] for i in [5,11,17,23,29,35,41]]
+    same_Z_70_ring_4   = [reso_list_4_ring[i] for i in [0,6,12,18,24,30,36]]
+    same_Z_120_ring_4  = [reso_list_4_ring[i] for i in [1,7,13,19,25,31,37]]
+    same_Z_170_ring_4  = [reso_list_4_ring[i] for i in [2,8,14,20,26,32,38]]
+    same_Z_220_ring_4  = [reso_list_4_ring[i] for i in [3,9,15,21,27,33,39]]
+    same_Z_270_ring_4  = [reso_list_4_ring[i] for i in [4,10,16,22,28,34,40]]
+    same_Z_320_ring_4  = [reso_list_4_ring[i] for i in [5,11,17,23,29,35,41]]
+    
+    same_Z_70_disk_4   = [reso_list_4_disk[i] for i in [0,6,12,18,24,30,36]]
+    same_Z_120_disk_4  = [reso_list_4_disk[i] for i in [1,7,13,19,25,31,37]]
+    same_Z_170_disk_4  = [reso_list_4_disk[i] for i in [2,8,14,20,26,32,38]]
+    same_Z_220_disk_4  = [reso_list_4_disk[i] for i in [3,9,15,21,27,33,39]]
+    same_Z_270_disk_4  = [reso_list_4_disk[i] for i in [4,10,16,22,28,34,40]]
+    same_Z_320_disk_4  = [reso_list_4_disk[i] for i in [5,11,17,23,29,35,41]]
     
     
     
     
-#     same_R_30_ring_1   = reso_list_1_ring[0:6]
-#     same_R_35_ring_1   = reso_list_1_ring[6:12]
-#     same_R_40_ring_1   = reso_list_1_ring[12:18]
-#     same_R_45_ring_1   = reso_list_1_ring[18:24]
-#     same_R_50_ring_1   = reso_list_1_ring[24:30]
-#     same_R_55_ring_1   = reso_list_1_ring[30:36]
-#     same_R_60_ring_1   = reso_list_1_ring[36:42]
+    same_Z_70_ring_4_4   = [reso_list_4_4_ring[i] for i in [0,6,12,18,24,30,36]]
+    same_Z_120_ring_4_4  = [reso_list_4_4_ring[i] for i in [1,7,13,19,25,31,37]]
+    same_Z_170_ring_4_4  = [reso_list_4_4_ring[i] for i in [2,8,14,20,26,32,38]]
+    same_Z_220_ring_4_4  = [reso_list_4_4_ring[i] for i in [3,9,15,21,27,33,39]]
+    same_Z_270_ring_4_4  = [reso_list_4_4_ring[i] for i in [4,10,16,22,28,34,40]]
+    same_Z_320_ring_4_4  = [reso_list_4_4_ring[i] for i in [5,11,17,23,29,35,41]]
     
-#     same_R_30_disk_1   = reso_list_1_disk[0:6]
-#     same_R_35_disk_1   = reso_list_1_disk[6:12]
-#     same_R_40_disk_1   = reso_list_1_disk[12:18]
-#     same_R_45_disk_1   = reso_list_1_disk[18:24]
-#     same_R_50_disk_1   = reso_list_1_disk[24:30]
-#     same_R_55_disk_1   = reso_list_1_disk[30:36]
-#     same_R_60_disk_1   = reso_list_1_disk[36:42]
-    
-    
-    
-#     same_R_30_ring_2   = reso_list_2_ring[0:6]
-#     same_R_35_ring_2   = reso_list_2_ring[6:12]
-#     same_R_40_ring_2   = reso_list_2_ring[12:18]
-#     same_R_45_ring_2   = reso_list_2_ring[18:24]
-#     same_R_50_ring_2   = reso_list_2_ring[24:30]
-#     same_R_55_ring_2   = reso_list_2_ring[30:36]
-#     same_R_60_ring_2   = reso_list_2_ring[36:42]
-    
-#     same_R_30_disk_2   = reso_list_2_disk[0:6]
-#     same_R_35_disk_2   = reso_list_2_disk[6:12]
-#     same_R_40_disk_2   = reso_list_2_disk[12:18]
-#     same_R_45_disk_2   = reso_list_2_disk[18:24]
-#     same_R_50_disk_2   = reso_list_2_disk[24:30]
-#     same_R_55_disk_2   = reso_list_2_disk[30:36]
-#     same_R_60_disk_2   = reso_list_2_disk[36:42]
-    
-    
-    
-#     same_R_30_ring_4   = reso_list_4_ring[0:6]
-#     same_R_35_ring_4   = reso_list_4_ring[6:12]
-#     same_R_40_ring_4   = reso_list_4_ring[12:18]
-#     same_R_45_ring_4   = reso_list_4_ring[18:24]
-#     same_R_50_ring_4   = reso_list_4_ring[24:30]
-#     same_R_55_ring_4   = reso_list_4_ring[30:36]
-#     same_R_60_ring_4   = reso_list_4_ring[36:42]
-    
-    
-#     same_R_30_disk_4   = reso_list_4_disk[0:6]
-#     same_R_35_disk_4   = reso_list_4_disk[6:12]
-#     same_R_40_disk_4   = reso_list_4_disk[12:18]
-#     same_R_45_disk_4   = reso_list_4_disk[18:24]
-#     same_R_50_disk_4   = reso_list_4_disk[24:30]
-#     same_R_55_disk_4   = reso_list_4_disk[30:36]
-#     same_R_60_disk_4   = reso_list_4_disk[36:42]
+    same_Z_70_disk_4_4   = [reso_list_4_4_disk[i] for i in [0,6,12,18,24,30,36]]
+    same_Z_120_disk_4_4  = [reso_list_4_4_disk[i] for i in [1,7,13,19,25,31,37]]
+    same_Z_170_disk_4_4  = [reso_list_4_4_disk[i] for i in [2,8,14,20,26,32,38]]
+    same_Z_220_disk_4_4  = [reso_list_4_4_disk[i] for i in [3,9,15,21,27,33,39]]
+    same_Z_270_disk_4_4  = [reso_list_4_4_disk[i] for i in [4,10,16,22,28,34,40]]
+    same_Z_320_disk_4_4  = [reso_list_4_4_disk[i] for i in [5,11,17,23,29,35,41]]
     
     
     
     
-#     same_R_30_ring_4_4   = reso_list_4_4_ring[0:6]
-#     same_R_35_ring_4_4   = reso_list_4_4_ring[6:12]
-#     same_R_40_ring_4_4   = reso_list_4_4_ring[12:18]
-#     same_R_45_ring_4_4   = reso_list_4_4_ring[18:24]
-#     same_R_50_ring_4_4   = reso_list_4_4_ring[24:30]
-#     same_R_55_ring_4_4   = reso_list_4_4_ring[30:36]
-#     same_R_60_ring_4_4   = reso_list_4_4_ring[36:42]
+    same_R_30_ring_1   = reso_list_1_ring[0:6]
+    same_R_35_ring_1   = reso_list_1_ring[6:12]
+    same_R_40_ring_1   = reso_list_1_ring[12:18]
+    same_R_45_ring_1   = reso_list_1_ring[18:24]
+    same_R_50_ring_1   = reso_list_1_ring[24:30]
+    same_R_55_ring_1   = reso_list_1_ring[30:36]
+    same_R_60_ring_1   = reso_list_1_ring[36:42]
+    
+    same_R_30_disk_1   = reso_list_1_disk[0:6]
+    same_R_35_disk_1   = reso_list_1_disk[6:12]
+    same_R_40_disk_1   = reso_list_1_disk[12:18]
+    same_R_45_disk_1   = reso_list_1_disk[18:24]
+    same_R_50_disk_1   = reso_list_1_disk[24:30]
+    same_R_55_disk_1   = reso_list_1_disk[30:36]
+    same_R_60_disk_1   = reso_list_1_disk[36:42]
     
     
-#     same_R_30_disk_4_4   = reso_list_4_4_disk[0:6]
-#     same_R_35_disk_4_4   = reso_list_4_4_disk[6:12]
-#     same_R_40_disk_4_4   = reso_list_4_4_disk[12:18]
-#     same_R_45_disk_4_4   = reso_list_4_4_disk[18:24]
-#     same_R_50_disk_4_4   = reso_list_4_4_disk[24:30]
-#     same_R_55_disk_4_4   = reso_list_4_4_disk[30:36]
-#     same_R_60_disk_4_4   = reso_list_4_4_disk[36:42]
+    
+    same_R_30_ring_2   = reso_list_2_ring[0:6]
+    same_R_35_ring_2   = reso_list_2_ring[6:12]
+    same_R_40_ring_2   = reso_list_2_ring[12:18]
+    same_R_45_ring_2   = reso_list_2_ring[18:24]
+    same_R_50_ring_2   = reso_list_2_ring[24:30]
+    same_R_55_ring_2   = reso_list_2_ring[30:36]
+    same_R_60_ring_2   = reso_list_2_ring[36:42]
+    
+    same_R_30_disk_2   = reso_list_2_disk[0:6]
+    same_R_35_disk_2   = reso_list_2_disk[6:12]
+    same_R_40_disk_2   = reso_list_2_disk[12:18]
+    same_R_45_disk_2   = reso_list_2_disk[18:24]
+    same_R_50_disk_2   = reso_list_2_disk[24:30]
+    same_R_55_disk_2   = reso_list_2_disk[30:36]
+    same_R_60_disk_2   = reso_list_2_disk[36:42]
     
     
     
-#     plt.figure()
+    same_R_30_ring_4   = reso_list_4_ring[0:6]
+    same_R_35_ring_4   = reso_list_4_ring[6:12]
+    same_R_40_ring_4   = reso_list_4_ring[12:18]
+    same_R_45_ring_4   = reso_list_4_ring[18:24]
+    same_R_50_ring_4   = reso_list_4_ring[24:30]
+    same_R_55_ring_4   = reso_list_4_ring[30:36]
+    same_R_60_ring_4   = reso_list_4_ring[36:42]
     
-#     plt.title('7949 corrected with 1 run')
-#     plt.plot(r, same_Z_70_ring_1, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
     
-#     plt.plot(r, same_Z_120_ring_1, color='orange', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [70,120]')
+    same_R_30_disk_4   = reso_list_4_disk[0:6]
+    same_R_35_disk_4   = reso_list_4_disk[6:12]
+    same_R_40_disk_4   = reso_list_4_disk[12:18]
+    same_R_45_disk_4   = reso_list_4_disk[18:24]
+    same_R_50_disk_4   = reso_list_4_disk[24:30]
+    same_R_55_disk_4   = reso_list_4_disk[30:36]
+    same_R_60_disk_4   = reso_list_4_disk[36:42]
     
-#     plt.plot(r, same_Z_170_ring_1, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [120,170]')
     
-#     plt.plot(r, same_Z_220_ring_1, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [170,220]')
     
-#     plt.plot(r, same_Z_270_ring_1, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [220,270]')
+    
+    same_R_30_ring_4_4   = reso_list_4_4_ring[0:6]
+    same_R_35_ring_4_4   = reso_list_4_4_ring[6:12]
+    same_R_40_ring_4_4   = reso_list_4_4_ring[12:18]
+    same_R_45_ring_4_4   = reso_list_4_4_ring[18:24]
+    same_R_50_ring_4_4   = reso_list_4_4_ring[24:30]
+    same_R_55_ring_4_4   = reso_list_4_4_ring[30:36]
+    same_R_60_ring_4_4   = reso_list_4_4_ring[36:42]
+    
+    
+    same_R_30_disk_4_4   = reso_list_4_4_disk[0:6]
+    same_R_35_disk_4_4   = reso_list_4_4_disk[6:12]
+    same_R_40_disk_4_4   = reso_list_4_4_disk[12:18]
+    same_R_45_disk_4_4   = reso_list_4_4_disk[18:24]
+    same_R_50_disk_4_4   = reso_list_4_4_disk[24:30]
+    same_R_55_disk_4_4   = reso_list_4_4_disk[30:36]
+    same_R_60_disk_4_4   = reso_list_4_4_disk[36:42]
+    
+    
+    
+    plt.figure()
+    
+    plt.title('7949 corrected with 1 run')
+    plt.plot(r, same_Z_70_ring_1, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
+    
+    plt.plot(r, same_Z_120_ring_1, color='orange', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [70,120]')
+    
+    plt.plot(r, same_Z_170_ring_1, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [120,170]')
+    
+    plt.plot(r, same_Z_220_ring_1, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [170,220]')
+    
+    plt.plot(r, same_Z_270_ring_1, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [220,270]')
         
-#     plt.plot(r, same_Z_320_ring_1, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
+    plt.plot(r, same_Z_320_ring_1, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
     
-#     plt.plot(r, same_Z_70_disk_1, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
+    plt.plot(r, same_Z_70_disk_1, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
     
-#     plt.plot(r, same_Z_120_disk_1, color='cyan', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,120]')
+    plt.plot(r, same_Z_120_disk_1, color='cyan', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,120]')
     
-#     plt.plot(r, same_Z_170_disk_1, color='gray', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,170]')
+    plt.plot(r, same_Z_170_disk_1, color='gray', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,170]')
     
-#     plt.plot(r, same_Z_220_disk_1, color='green', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,220]')
+    plt.plot(r, same_Z_220_disk_1, color='green', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,220]')
     
-#     plt.plot(r, same_Z_270_disk_1, color='purple', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,270]')
+    plt.plot(r, same_Z_270_disk_1, color='purple', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,270]')
         
-#     plt.plot(r, same_Z_320_disk_1, color='goldenrod', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
+    plt.plot(r, same_Z_320_disk_1, color='goldenrod', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
     
     
-#     plt.xlabel('R (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=4, fontsize=6)
-#     plt.xlim(20,75)
-#     plt.ylim(3,6)
+    plt.xlabel('R (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=4, fontsize=6)
+    plt.xlim(20,75)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_1_r_all_all.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_1_r_all_all.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
+    plt.close()
     
     
     
-#     plt.figure()
+    plt.figure()
     
-#     plt.title('7949 corrected with 2 runs')
-#     plt.plot(r, same_Z_70_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
+    plt.title('7949 corrected with 2 runs')
+    plt.plot(r, same_Z_70_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
     
-#     plt.plot(r, same_Z_120_ring_2, color='orange', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [70,120]')
+    plt.plot(r, same_Z_120_ring_2, color='orange', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [70,120]')
     
-#     plt.plot(r, same_Z_170_ring_2, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [120,170]')
+    plt.plot(r, same_Z_170_ring_2, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [120,170]')
     
-#     plt.plot(r, same_Z_220_ring_2, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [170,220]')
+    plt.plot(r, same_Z_220_ring_2, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [170,220]')
     
-#     plt.plot(r, same_Z_270_ring_2, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [220,270]')
+    plt.plot(r, same_Z_270_ring_2, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [220,270]')
         
-#     plt.plot(r, same_Z_320_ring_2, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
+    plt.plot(r, same_Z_320_ring_2, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
     
-#     plt.plot(r, same_Z_70_disk_2, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
+    plt.plot(r, same_Z_70_disk_2, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
     
-#     plt.plot(r, same_Z_120_disk_2, color='cyan', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,120]')
+    plt.plot(r, same_Z_120_disk_2, color='cyan', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,120]')
     
-#     plt.plot(r, same_Z_170_disk_2, color='gray', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,170]')
+    plt.plot(r, same_Z_170_disk_2, color='gray', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,170]')
     
-#     plt.plot(r, same_Z_220_disk_2, color='green', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,220]')
+    plt.plot(r, same_Z_220_disk_2, color='green', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,220]')
     
-#     plt.plot(r, same_Z_270_disk_2, color='purple', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,270]')
+    plt.plot(r, same_Z_270_disk_2, color='purple', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,270]')
         
-#     plt.plot(r, same_Z_320_disk_2, color='goldenrod', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
+    plt.plot(r, same_Z_320_disk_2, color='goldenrod', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
     
     
-#     plt.xlabel('R (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=4, fontsize=6)
-#     plt.xlim(20,75)
-#     plt.ylim(3,6)
+    plt.xlabel('R (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=4, fontsize=6)
+    plt.xlim(20,75)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_2_r_all_all.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_2_r_all_all.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
-    
-    
+    plt.close()
     
     
-#     plt.figure()
     
-#     plt.title('7949 corrected with 4 runs')
-#     plt.plot(r, same_Z_70_ring_4, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
     
-#     plt.plot(r, same_Z_120_ring_4, color='orange', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [70,120]')
+    plt.figure()
     
-#     plt.plot(r, same_Z_170_ring_4, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [120,170]')
+    plt.title('7949 corrected with 4 runs')
+    plt.plot(r, same_Z_70_ring_4, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
     
-#     plt.plot(r, same_Z_220_ring_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [170,220]')
+    plt.plot(r, same_Z_120_ring_4, color='orange', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [70,120]')
     
-#     plt.plot(r, same_Z_270_ring_4, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [220,270]')
+    plt.plot(r, same_Z_170_ring_4, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [120,170]')
+    
+    plt.plot(r, same_Z_220_ring_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [170,220]')
+    
+    plt.plot(r, same_Z_270_ring_4, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [220,270]')
         
-#     plt.plot(r, same_Z_320_ring_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
+    plt.plot(r, same_Z_320_ring_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
     
-#     plt.plot(r, same_Z_70_disk_4, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
+    plt.plot(r, same_Z_70_disk_4, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
     
-#     plt.plot(r, same_Z_120_disk_4, color='cyan', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,120]')
+    plt.plot(r, same_Z_120_disk_4, color='cyan', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,120]')
     
-#     plt.plot(r, same_Z_170_disk_4, color='gray', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,170]')
+    plt.plot(r, same_Z_170_disk_4, color='gray', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,170]')
     
-#     plt.plot(r, same_Z_220_disk_4, color='green', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,220]')
+    plt.plot(r, same_Z_220_disk_4, color='green', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,220]')
     
-#     plt.plot(r, same_Z_270_disk_4, color='purple', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,270]')
+    plt.plot(r, same_Z_270_disk_4, color='purple', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,270]')
         
-#     plt.plot(r, same_Z_320_disk_4, color='goldenrod', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
+    plt.plot(r, same_Z_320_disk_4, color='goldenrod', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
     
     
-#     plt.xlabel('R (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=4, fontsize=6)
-#     plt.xlim(20,75)
-#     plt.ylim(3,6)
+    plt.xlabel('R (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=4, fontsize=6)
+    plt.xlim(20,75)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_4_r_all_all.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_4_r_all_all.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
+    plt.close()
     
     
-#     plt.figure()
+    plt.figure()
     
-#     plt.title('7949, 7950, 7951, 7952 corrected with 4 runs')
-#     plt.plot(r, same_Z_70_ring_4_4, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
+    plt.title('7949, 7950, 7951, 7952 corrected with 4 runs')
+    plt.plot(r, same_Z_70_ring_4_4, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
     
-#     plt.plot(r, same_Z_120_ring_4_4, color='orange', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [70,120]')
+    plt.plot(r, same_Z_120_ring_4_4, color='orange', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [70,120]')
     
-#     plt.plot(r, same_Z_170_ring_4_4, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [120,170]')
+    plt.plot(r, same_Z_170_ring_4_4, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [120,170]')
     
-#     plt.plot(r, same_Z_220_ring_4_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [170,220]')
+    plt.plot(r, same_Z_220_ring_4_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [170,220]')
     
-#     plt.plot(r, same_Z_270_ring_4_4, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [220,270]')
+    plt.plot(r, same_Z_270_ring_4_4, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [220,270]')
         
-#     plt.plot(r, same_Z_320_ring_4_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
+    plt.plot(r, same_Z_320_ring_4_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
     
-#     plt.plot(r, same_Z_70_disk_4_4, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
+    plt.plot(r, same_Z_70_disk_4_4, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
     
-#     plt.plot(r, same_Z_120_disk_4_4, color='cyan', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,120]')
+    plt.plot(r, same_Z_120_disk_4_4, color='cyan', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,120]')
     
-#     plt.plot(r, same_Z_170_disk_4_4, color='gray', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,170]')
+    plt.plot(r, same_Z_170_disk_4_4, color='gray', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,170]')
     
-#     plt.plot(r, same_Z_220_disk_4_4, color='green', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,220]')
+    plt.plot(r, same_Z_220_disk_4_4, color='green', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,220]')
     
-#     plt.plot(r, same_Z_270_disk_4_4, color='purple', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,270]')
+    plt.plot(r, same_Z_270_disk_4_4, color='purple', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,270]')
         
-#     plt.plot(r, same_Z_320_disk_4_4, color='goldenrod', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
+    plt.plot(r, same_Z_320_disk_4_4, color='goldenrod', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
     
     
-#     plt.xlabel('R (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=4, fontsize=6)
-#     plt.xlim(20,75)
-#     plt.ylim(3,6)
+    plt.xlabel('R (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=4, fontsize=6)
+    plt.xlim(20,75)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_4_4_r_all_all.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_4_4_r_all_all.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
-    
-    
+    plt.close()
     
     
-#     plt.figure()
     
-#     plt.title('7949 corrected with 1 run')
-#     plt.plot(r, same_Z_70_ring_1, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
+    
+    plt.figure()
+    
+    plt.title('7949 corrected with 1 run')
+    plt.plot(r, same_Z_70_ring_1, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
         
-#     plt.plot(r, same_Z_320_ring_1, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
+    plt.plot(r, same_Z_320_ring_1, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
     
-#     plt.plot(r, same_Z_70_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
+    plt.plot(r, same_Z_70_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
         
-#     plt.plot(r, same_Z_320_disk_1, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
+    plt.plot(r, same_Z_320_disk_1, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
     
     
     
-#     plt.xlabel('R (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(20,75)
-#     plt.ylim(3,6)
+    plt.xlabel('R (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(20,75)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_1_r_all.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_1_r_all.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
+    plt.close()
     
     
-#     plt.figure()
+    plt.figure()
     
-#     plt.title('7949 corrected with 2 runs')
-#     plt.plot(r, same_Z_70_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
+    plt.title('7949 corrected with 2 runs')
+    plt.plot(r, same_Z_70_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
         
-#     plt.plot(r, same_Z_320_ring_2, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
+    plt.plot(r, same_Z_320_ring_2, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
     
-#     plt.plot(r, same_Z_70_disk_2, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
+    plt.plot(r, same_Z_70_disk_2, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
         
-#     plt.plot(r, same_Z_320_disk_2, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
+    plt.plot(r, same_Z_320_disk_2, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
     
     
     
-#     plt.xlabel('R (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(20,75)
-#     plt.ylim(3,6)
+    plt.xlabel('R (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(20,75)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_2_r_all.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_2_r_all.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
+    plt.close()
     
     
     
-#     plt.figure()
+    plt.figure()
     
-#     plt.title('7949 corrected with 4 runs')
-#     plt.plot(r, same_Z_70_ring_4, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
+    plt.title('7949 corrected with 4 runs')
+    plt.plot(r, same_Z_70_ring_4, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
         
-#     plt.plot(r, same_Z_320_ring_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
+    plt.plot(r, same_Z_320_ring_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
     
-#     plt.plot(r, same_Z_70_disk_4, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
+    plt.plot(r, same_Z_70_disk_4, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
         
-#     plt.plot(r, same_Z_320_disk_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
+    plt.plot(r, same_Z_320_disk_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
     
     
     
-#     plt.xlabel('R (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(20,75)
-#     plt.ylim(3,6)
+    plt.xlabel('R (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(20,75)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_4_r_all.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_4_r_all.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
+    plt.close()
     
     
     
-#     plt.figure()
+    plt.figure()
     
-#     plt.title('7949, 7950, 7951, 7952 corrected with 4 runs')
-#     plt.plot(r, same_Z_70_ring_4_4, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
+    plt.title('7949, 7950, 7951, 7952 corrected with 4 runs')
+    plt.plot(r, same_Z_70_ring_4_4, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [0,70]')
         
-#     plt.plot(r, same_Z_320_ring_4_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
+    plt.plot(r, same_Z_320_ring_4_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, Z [270,320]')
     
-#     plt.plot(r, same_Z_70_disk_4_4, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
+    plt.plot(r, same_Z_70_disk_4_4, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,70]')
         
-#     plt.plot(r, same_Z_320_disk_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
+    plt.plot(r, same_Z_320_disk_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, Z [0,320]')
     
     
     
-#     plt.xlabel('R (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(20,75)
-#     plt.ylim(3,6)
+    plt.xlabel('R (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(20,75)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_4_4_r_all.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_4_4_r_all.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
-    
-    
+    plt.close()
     
     
-#     ########################
     
     
-#     plt.figure()
+    ########################
     
-#     plt.title('7949 corrected with 1 run')
-#     plt.plot(z, same_R_30_ring_1, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [0,30]')
+    
+    plt.figure()
+    
+    plt.title('7949 corrected with 1 run')
+    plt.plot(z, same_R_30_ring_1, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [0,30]')
         
-#     plt.plot(z, same_R_60_ring_1, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [55,60]')
+    plt.plot(z, same_R_60_ring_1, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [55,60]')
     
-#     plt.plot(z, same_R_30_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,30]')
+    plt.plot(z, same_R_30_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,30]')
         
-#     plt.plot(z, same_R_60_disk_1, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,60]')
+    plt.plot(z, same_R_60_disk_1, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,60]')
     
     
     
-#     plt.xlabel('Z (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(0,350)
-#     plt.ylim(3,6)
+    plt.xlabel('Z (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(0,350)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_1_z_all.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_1_z_all.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
+    plt.close()
     
     
-#     plt.figure()
+    plt.figure()
     
-#     plt.title('7949 corrected with 2 runs')
-#     plt.plot(z, same_R_30_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [0,30]')
+    plt.title('7949 corrected with 2 runs')
+    plt.plot(z, same_R_30_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [0,30]')
         
-#     plt.plot(z, same_R_60_ring_2, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [55,60]')
+    plt.plot(z, same_R_60_ring_2, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [55,60]')
     
-#     plt.plot(z, same_R_30_disk_2, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,30]')
+    plt.plot(z, same_R_30_disk_2, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,30]')
         
-#     plt.plot(z, same_R_60_disk_2, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,60]')
+    plt.plot(z, same_R_60_disk_2, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,60]')
     
     
     
-#     plt.xlabel('Z (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(0,350)
-#     plt.ylim(3,6)
+    plt.xlabel('Z (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(0,350)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_2_z_all.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_2_z_all.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
+    plt.close()
     
     
     
-#     plt.figure()
+    plt.figure()
     
-#     plt.title('7949 corrected with 4 runs')
-#     plt.plot(z, same_R_30_ring_4, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [0,30]')
+    plt.title('7949 corrected with 4 runs')
+    plt.plot(z, same_R_30_ring_4, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [0,30]')
         
-#     plt.plot(z, same_R_60_ring_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [55,60]')
+    plt.plot(z, same_R_60_ring_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [55,60]')
     
-#     plt.plot(z, same_R_30_disk_4, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,30]')
+    plt.plot(z, same_R_30_disk_4, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,30]')
         
-#     plt.plot(z, same_R_60_disk_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,60]')
+    plt.plot(z, same_R_60_disk_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,60]')
     
     
     
-#     plt.xlabel('Z (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(0,350)
-#     plt.ylim(3,6)
+    plt.xlabel('Z (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(0,350)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_4_z_all.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_4_z_all.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
+    plt.close()
     
     
     
-#     plt.figure()
+    plt.figure()
     
-#     plt.title('7949, 7950, 7951, 7952 corrected with 4 runs')
-#     plt.plot(z, same_R_30_ring_4_4, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [0,30]')
+    plt.title('7949, 7950, 7951, 7952 corrected with 4 runs')
+    plt.plot(z, same_R_30_ring_4_4, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [0,30]')
         
-#     plt.plot(z, same_R_60_ring_4_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [55,60]')
+    plt.plot(z, same_R_60_ring_4_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='Ring, R [55,60]')
     
-#     plt.plot(z, same_R_30_disk_4_4, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,30]')
+    plt.plot(z, same_R_30_disk_4_4, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,30]')
         
-#     plt.plot(z, same_R_60_disk_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,60]')
+    plt.plot(z, same_R_60_disk_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='Disk, R [0,60]')
     
     
     
-#     plt.xlabel('Z (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(0,350)
-#     plt.ylim(3,6)
+    plt.xlabel('Z (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(0,350)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_4_4_z_all.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_4_4_z_all.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
-    
-    
+    plt.close()
     
     
     
     
-#     plt.figure()
     
-#     plt.title('Ring plots')
-#     plt.plot(r, same_Z_70_ring_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [0,70]')
     
-#     plt.plot(r, same_Z_70_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [0,70]')
+    plt.figure()
     
-#     plt.plot(r, same_Z_70_ring_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [0,70]')
+    plt.title('Ring plots')
+    plt.plot(r, same_Z_70_ring_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [0,70]')
     
-#     plt.plot(r, same_Z_70_ring_4_4, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [0,70]')
+    plt.plot(r, same_Z_70_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [0,70]')
     
-#     plt.plot(r, same_Z_320_ring_1, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [270,320]')
+    plt.plot(r, same_Z_70_ring_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [0,70]')
     
-#     plt.plot(r, same_Z_320_ring_2, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [270,320]')
+    plt.plot(r, same_Z_70_ring_4_4, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [0,70]')
     
-#     plt.plot(r, same_Z_320_ring_4, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [270,320]')
+    plt.plot(r, same_Z_320_ring_1, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [270,320]')
     
-#     plt.plot(r, same_Z_320_ring_4_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [270,320]')
+    plt.plot(r, same_Z_320_ring_2, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [270,320]')
     
-#     plt.xlabel('R (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(20,75)
-#     plt.ylim(3,6)
+    plt.plot(r, same_Z_320_ring_4, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [270,320]')
     
-#     plt.savefig('/home/afonso/data/results/plot_all_r_ring.png', dpi = 300)
+    plt.plot(r, same_Z_320_ring_4_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [270,320]')
+    
+    plt.xlabel('R (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(20,75)
+    plt.ylim(3,6)
+    
+    plt.savefig('/home/afonso/data/results/plot_all_r_ring.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
-    
-    
+    plt.close()
     
     
-#     plt.figure()
     
-#     plt.title('Disk plots')
-#     plt.plot(r, same_Z_70_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [0,70]')
     
-#     plt.plot(r, same_Z_70_disk_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [0,70]')
+    plt.figure()
     
-#     plt.plot(r, same_Z_70_disk_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [0,70]')
+    plt.title('Disk plots')
+    plt.plot(r, same_Z_70_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [0,70]')
     
-#     plt.plot(r, same_Z_70_disk_4_4, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [0,70]')
+    plt.plot(r, same_Z_70_disk_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [0,70]')
     
-#     plt.plot(r, same_Z_320_disk_1, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [0,320]')
+    plt.plot(r, same_Z_70_disk_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [0,70]')
     
-#     plt.plot(r, same_Z_320_disk_2, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [0,320]')
+    plt.plot(r, same_Z_70_disk_4_4, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [0,70]')
     
-#     plt.plot(r, same_Z_320_disk_4, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [0,320]')
+    plt.plot(r, same_Z_320_disk_1, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [0,320]')
     
-#     plt.plot(r, same_Z_320_disk_4_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [0,320]')
+    plt.plot(r, same_Z_320_disk_2, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [0,320]')
     
-#     plt.xlabel('R (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(20,75)
-#     plt.ylim(3,6)
+    plt.plot(r, same_Z_320_disk_4, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [0,320]')
     
-#     plt.savefig('/home/afonso/data/results/plot_all_r_disk.png', dpi = 300)
+    plt.plot(r, same_Z_320_disk_4_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [0,320]')
+    
+    plt.xlabel('R (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(20,75)
+    plt.ylim(3,6)
+    
+    plt.savefig('/home/afonso/data/results/plot_all_r_disk.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
+    plt.close()
 
     
     
-#     plt.figure()
+    plt.figure()
     
-#     plt.title('Ring plots')
+    plt.title('Ring plots')
     
-#     plt.plot(z, same_R_30_ring_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [0,30]')
+    plt.plot(z, same_R_30_ring_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [0,30]')
     
-#     plt.plot(z, same_R_60_ring_1, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [55,60]')
+    plt.plot(z, same_R_60_ring_1, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [55,60]')
     
-#     plt.plot(z, same_R_30_ring_2, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [0,30]')
+    plt.plot(z, same_R_30_ring_2, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [0,30]')
     
-#     plt.plot(z, same_R_60_ring_2, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [55,60]')
+    plt.plot(z, same_R_60_ring_2, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [55,60]')
     
-#     plt.plot(z, same_R_30_ring_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [0,30]')
+    plt.plot(z, same_R_30_ring_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [0,30]')
     
-#     plt.plot(z, same_R_60_ring_4, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [55,60]')
+    plt.plot(z, same_R_60_ring_4, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [55,60]')
     
-#     plt.plot(z, same_R_30_ring_4_4, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [0,30]')
+    plt.plot(z, same_R_30_ring_4_4, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [0,30]')
     
-#     plt.plot(z, same_R_60_ring_4_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [55,60]')
+    plt.plot(z, same_R_60_ring_4_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [55,60]')
     
-#     plt.xlabel('Z (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(0,350)
-#     plt.ylim(3,6)
+    plt.xlabel('Z (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(0,350)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_all_z_ring.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_all_z_ring.png', dpi = 300)
     
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
-    
-    
-    
-#     plt.figure()
-    
-#     plt.title('Disk plots')
-#     plt.plot(z, same_R_30_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [0,30]')
-    
-#     plt.plot(z, same_R_60_disk_1, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [0,60]')
-    
-#     plt.plot(z, same_R_30_disk_2, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [0,30]')
-    
-#     plt.plot(z, same_R_60_disk_2, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [0,60]')
-    
-#     plt.plot(z, same_R_30_disk_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [0,30]')
-    
-#     plt.plot(z, same_R_60_disk_4, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [0,60]')
-    
-#     plt.plot(z, same_R_30_disk_4_4, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [0,30]')
-    
-#     plt.plot(z, same_R_60_disk_4_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [0,60]')
-    
-#     plt.xlabel('Z (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(0,350)
-#     plt.ylim(3,6)
-    
-#     plt.savefig('/home/afonso/data/results/plot_all_z_disk.png', dpi = 300)
-    
-# #     plt.show()
-    
-#     plt.close()
+    plt.close()
     
     
     
-#     plt.figure()
+    plt.figure()
     
-#     plt.title('Ring plots')
+    plt.title('Disk plots')
+    plt.plot(z, same_R_30_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [0,30]')
     
-#     plt.plot(z, same_R_30_ring_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [0,30]')
+    plt.plot(z, same_R_60_disk_1, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [0,60]')
+    
+    plt.plot(z, same_R_30_disk_2, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [0,30]')
+    
+    plt.plot(z, same_R_60_disk_2, color='pink', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [0,60]')
+    
+    plt.plot(z, same_R_30_disk_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [0,30]')
+    
+    plt.plot(z, same_R_60_disk_4, color='olive', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [0,60]')
+    
+    plt.plot(z, same_R_30_disk_4_4, color='brown', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [0,30]')
+    
+    plt.plot(z, same_R_60_disk_4_4, color='crimson', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [0,60]')
+    
+    plt.xlabel('Z (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(0,350)
+    plt.ylim(3,6)
+    
+    plt.savefig('/home/afonso/data/results/plot_all_z_disk.png', dpi = 300)
+    
+#     plt.show()
+    
+    plt.close()
+    
+    
+    
+    plt.figure()
+    
+    plt.title('Ring plots')
+    
+    plt.plot(z, same_R_30_ring_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [0,30]')
         
-#     plt.plot(z, same_R_30_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [0,30]')
+    plt.plot(z, same_R_30_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [0,30]')
         
-#     plt.plot(z, same_R_30_ring_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [0,30]')
+    plt.plot(z, same_R_30_ring_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [0,30]')
         
-#     plt.plot(z, same_R_30_ring_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [0,30]')
+    plt.plot(z, same_R_30_ring_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [0,30]')
         
-#     plt.xlabel('Z (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(0,350)
-#     plt.ylim(3,6)
+    plt.xlabel('Z (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(0,350)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_r_0_30_ring.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_r_0_30_ring.png', dpi = 300)
     
-# #     plt.show()
+#     plt.show()
     
-#     plt.close()
-    
-    
+    plt.close()
     
     
-#     plt.figure()
     
-#     plt.title('Disk plots')
-#     plt.plot(z, same_R_30_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [0,30]')
+    
+    plt.figure()
+    
+    plt.title('Disk plots')
+    plt.plot(z, same_R_30_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [0,30]')
         
-#     plt.plot(z, same_R_30_disk_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [0,30]')
+    plt.plot(z, same_R_30_disk_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [0,30]')
         
-#     plt.plot(z, same_R_30_disk_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [0,30]')
+    plt.plot(z, same_R_30_disk_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [0,30]')
         
-#     plt.plot(z, same_R_30_disk_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [0,30]')
+    plt.plot(z, same_R_30_disk_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [0,30]')
         
-#     plt.xlabel('Z (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(0,350)
-#     plt.ylim(3,6)
+    plt.xlabel('Z (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(0,350)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_r_0_30_disk.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_r_0_30_disk.png', dpi = 300)
     
-# #     plt.show()
+#     plt.show()
     
-#     plt.close()
+    plt.close()
     
     
-#     plt.figure()
+    plt.figure()
     
-#     plt.title('Ring plots')
+    plt.title('Ring plots')
         
-#     plt.plot(z, same_R_60_ring_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [55,60]')
+    plt.plot(z, same_R_60_ring_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [55,60]')
         
-#     plt.plot(z, same_R_60_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [55,60]')
+    plt.plot(z, same_R_60_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [55,60]')
         
-#     plt.plot(z, same_R_60_ring_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [55,60]')
+    plt.plot(z, same_R_60_ring_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [55,60]')
         
-#     plt.plot(z, same_R_60_ring_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [55,60]')
+    plt.plot(z, same_R_60_ring_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [55,60]')
     
-#     plt.xlabel('Z (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(0,350)
-#     plt.ylim(3,6)
+    plt.xlabel('Z (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(0,350)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_r_55_60_ring.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_r_55_60_ring.png', dpi = 300)
     
-# #     plt.show()
+#     plt.show()
     
-#     plt.close()
+    plt.close()
     
     
     
-#     plt.figure()
+    plt.figure()
     
-#     plt.title('Disk plots')
+    plt.title('Disk plots')
     
-#     plt.plot(z, same_R_60_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [0,60]')
+    plt.plot(z, same_R_60_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, R [0,60]')
         
-#     plt.plot(z, same_R_60_disk_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [0,60]')
+    plt.plot(z, same_R_60_disk_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, R [0,60]')
         
-#     plt.plot(z, same_R_60_disk_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [0,60]')
+    plt.plot(z, same_R_60_disk_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, R [0,60]')
         
-#     plt.plot(z, same_R_60_disk_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [0,60]')
+    plt.plot(z, same_R_60_disk_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, R [0,60]')
     
-#     plt.xlabel('Z (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(0,350)
-#     plt.ylim(3,6)
+    plt.xlabel('Z (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(0,350)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_r_0_60_disk.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_r_0_60_disk.png', dpi = 300)
     
-# #     plt.show()
+#     plt.show()
     
-#     plt.close()
-    
-    
+    plt.close()
     
     
     
     
-#     plt.figure()
-    
-#     plt.title('Rins plots')
-#     plt.plot(r, same_Z_70_ring_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [0,70]')
-    
-#     plt.plot(r, same_Z_70_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [0,70]')
-    
-#     plt.plot(r, same_Z_70_ring_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [0,70]')
-    
-#     plt.plot(r, same_Z_70_ring_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [0,70]')
     
     
-#     plt.xlabel('R (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(20,75)
-#     plt.ylim(3,6)
+    plt.figure()
     
-#     plt.savefig('/home/afonso/data/results/plot_z_0_70_ring.png', dpi = 300)
+    plt.title('Rins plots')
+    plt.plot(r, same_Z_70_ring_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [0,70]')
+    
+    plt.plot(r, same_Z_70_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [0,70]')
+    
+    plt.plot(r, same_Z_70_ring_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [0,70]')
+    
+    plt.plot(r, same_Z_70_ring_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [0,70]')
+    
+    
+    plt.xlabel('R (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(20,75)
+    plt.ylim(3,6)
+    
+    plt.savefig('/home/afonso/data/results/plot_z_0_70_ring.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
+    plt.close()
     
     
-#     plt.figure()
+    plt.figure()
     
-#     plt.title('Ring plots')
-#     plt.plot(r, same_Z_320_ring_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [270,320]')
+    plt.title('Ring plots')
+    plt.plot(r, same_Z_320_ring_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [270,320]')
     
-#     plt.plot(r, same_Z_320_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [270,320]')
+    plt.plot(r, same_Z_320_ring_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [270,320]')
     
-#     plt.plot(r, same_Z_320_ring_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [270,320]')
+    plt.plot(r, same_Z_320_ring_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [270,320]')
     
-#     plt.plot(r, same_Z_320_ring_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [270,320]')
+    plt.plot(r, same_Z_320_ring_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [270,320]')
     
-#     plt.xlabel('R (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(20,75)
-#     plt.ylim(3,6)
+    plt.xlabel('R (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(20,75)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_z_270_320_ring.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_z_270_320_ring.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
-    
-    
-    
-#     plt.figure()
-    
-#     plt.title('Disk plots')
-#     plt.plot(r, same_Z_70_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [0,70]')
-    
-#     plt.plot(r, same_Z_70_disk_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [0,70]')
-    
-#     plt.plot(r, same_Z_70_disk_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [0,70]')
-    
-#     plt.plot(r, same_Z_70_disk_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [0,70]')
+    plt.close()
     
     
-#     plt.xlabel('R (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(20,75)
-#     plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_z_0_70_disk.png', dpi = 300)
+    plt.figure()
+    
+    plt.title('Disk plots')
+    plt.plot(r, same_Z_70_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [0,70]')
+    
+    plt.plot(r, same_Z_70_disk_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [0,70]')
+    
+    plt.plot(r, same_Z_70_disk_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [0,70]')
+    
+    plt.plot(r, same_Z_70_disk_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [0,70]')
+    
+    
+    plt.xlabel('R (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(20,75)
+    plt.ylim(3,6)
+    
+    plt.savefig('/home/afonso/data/results/plot_z_0_70_disk.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
+    plt.close()
     
     
-#     plt.figure()
+    plt.figure()
     
-#     plt.title('Disk plots')
-#     plt.plot(r, same_Z_320_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [0,320]')
+    plt.title('Disk plots')
+    plt.plot(r, same_Z_320_disk_1, color='yellow', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 1 run, Z [0,320]')
     
-#     plt.plot(r, same_Z_320_disk_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [0,320]')
+    plt.plot(r, same_Z_320_disk_2, color='blue', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 2 runs, Z [0,320]')
     
-#     plt.plot(r, same_Z_320_disk_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [0,320]')
+    plt.plot(r, same_Z_320_disk_4, color='red', marker='o', markeredgecolor='white', linestyle='dotted', label='7949 corrected with 4 runs, Z [0,320]')
     
-#     plt.plot(r, same_Z_320_disk_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [0,320]')
+    plt.plot(r, same_Z_320_disk_4_4, color='black', marker='o', markeredgecolor='white', linestyle='dotted', label='[7949,7950,7951,7952] corrected with 4 runs, Z [0,320]')
     
-#     plt.xlabel('R (mm)'),
-#     plt.ylabel('Resolution FWHM (%)')
-#     plt.legend(loc='upper right', ncol=2, fontsize=6)
-#     plt.xlim(20,75)
-#     plt.ylim(3,6)
+    plt.xlabel('R (mm)'),
+    plt.ylabel('Resolution FWHM (%)')
+    plt.legend(loc='upper right', ncol=2, fontsize=6)
+    plt.xlim(20,75)
+    plt.ylim(3,6)
     
-#     plt.savefig('/home/afonso/data/results/plot_z_270_320_disk.png', dpi = 300)
+    plt.savefig('/home/afonso/data/results/plot_z_270_320_disk.png', dpi = 300)
  
-#     # plt.show()
+    # plt.show()
     
-#     plt.close()
+    plt.close()
     
     
     

@@ -88,7 +88,7 @@ def map_creation(dst, opt_dict):
                        yr         = (-60, 60)  ,
                        nx         = xy_num_bins,
                        ny         = xy_num_bins,
-                       run_number = run        )
+                       run_number = int(run)        )
     
     print(regularized_maps.mapinfo, '\n')
     
