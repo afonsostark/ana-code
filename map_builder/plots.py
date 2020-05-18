@@ -377,108 +377,29 @@ def plot_after(dst, opt_dict):
     plt.tight_layout()
 
     plt.subplot(5,2,5) 
-    sns.heatmap(nXY, vmin = 0, vmax = 150, cmap = 'coolwarm', cbar_kws = {'label': 'Number of events per XY bin'})
+    sns.heatmap(nXY, vmin = 0, vmax = 500, cmap = 'coolwarm', cbar_kws = {'label': 'Number of events per XY bin'})
 
     plt.xlabel("X bins");
     plt.ylabel("Y bins");
+    
+    
+#     plt.subplot(5,2,6)
+#     a = plt.hist2d(dst.Phi, dst.S2e, 80, cmap = 'coolwarm');
+#     plt.xlabel('$\phi$'); 
+#     plt.ylabel('S2e (pes)'); 
+    
+#     cbar = plt.colorbar(a[3])
+#     cbar.set_label('Number of events')
+
+#     plt.tight_layout()
+    
 
     print('The total number of events is', np.sum(np.sum(nXY)), '\n')
     print('{:.2f} % of the events are within nXY > {} (nmin)\n'.format(100*np.sum(np.sum(nXY[nXY > nmin]))/np.sum(np.sum(nXY[nXY > 0])),nmin))
     
     return fig
 
-
-def plot_after(dst, opt_dict):
-    
-    s2e_clean_min  = int(opt_dict["s2e_clean_min"])
-    s2e_clean_max  = int(opt_dict["s2e_clean_max"])
-    
-    s1e_clean_min  = int(opt_dict["s1e_clean_min"])
-    s1e_clean_max  = int(opt_dict["s1e_clean_max"])
-
-    s2w_clean_min  = int(opt_dict["s2w_clean_min"])
-    s2w_clean_max  = int(opt_dict["s2w_clean_max"])
-
-    s2q_clean_min  = int(opt_dict["s2q_clean_min"])
-    s2q_clean_max  = int(opt_dict["s2q_clean_max"])
-
-    nsipm_clean_min  = int(opt_dict["nsipm_clean_min"])
-    nsipm_clean_max  = int(opt_dict["nsipm_clean_max"])
-    
-    zmap_clean_min  = int(opt_dict["zmap_clean_min"])
-    zmap_clean_max  = int(opt_dict["zmap_clean_max"])
-    
-    xy_num_bins   = int(opt_dict['xy_num_bins'])
-    nmin          = int(opt_dict['nmin'])
-    
-    fig = plt.figure(figsize=(15,25))
-    plt.subplot(5,2,1)
-    plt.hist(dst.S2e[(dst.Z > 100) & (dst.Z < 200) & (dst.R > 20) & (dst.R < 40)], 200, (8000, 12000), color = 'indianred', label = 'Z = [100, 200]\nR = [20, 40]', histtype = 'stepfilled');
-    plt.xlabel('S2e (pes)')
-    plt.ylabel('Entries')
-    plt.legend()
-    
-    plt.axvline(x = s2e_clean_min, color = 'green')
-    plt.axvline(x = s2e_clean_max, color = 'green')
-    
-    plt.tight_layout()
-    
-    plt.subplot(5,2,2)    
-    plt.hist(dst.S2e[(dst.Z > 100) & (dst.Z < 200) & (dst.R > 40) & (dst.R < 60)], 200, (8000, 12000), color = 'indianred', label = 'Z = [100, 200]\nR = [40, 60]', histtype = 'stepfilled');
-    plt.xlabel('S2e (pes)')
-    plt.ylabel('Entries')
-    plt.legend()
-    
-    plt.axvline(x = s2e_clean_min, color = 'green')
-    plt.axvline(x = s2e_clean_max, color = 'green')
-    
-    plt.tight_layout()
-    
-    x, y, yu  = profileX(dst.Z, dst.S2e, 30, (zmap_clean_min, zmap_clean_max), (s2e_clean_min, s2e_clean_max))
-    
-    plt.subplot(5,2,3)  
-    a = plt.hist2d(dst.Z,dst.S2e, 80, range = ((0, 350), (4000, 12000)), cmap = 'coolwarm')
-    plt.ylabel('S2e (pes)')
-    plt.xlabel('Drift time ($\mu$s)')
-
-    cbar = plt.colorbar(a[3])
-    cbar.set_label('Number of events')
-
-    plt.plot(x,y,yu)
-    plt.errorbar(x, y, yu, fmt="kp")
-    
-    plt.tight_layout()
-    
-     
-    XYbins = (xy_num_bins , xy_num_bins)
-    xbins = np.linspace(*(-60,60), XYbins[0] + 1)
-    ybins = np.linspace(*(-60,60), XYbins[1] + 1)
-
-    KXY = select_xy_sectors_df(dst, xbins, ybins)
-    nXY = event_map_df(KXY)
-    
-    plt.subplot(5,2,4) 
-    plt.hist(nXY.values.flatten(), 100, (1,600), color = 'indianred', histtype = 'stepfilled')
-    plt.xlabel('Number of events in each XY bin')
-    plt.ylabel('Entries')
-
-    plt.axvline(x = nmin, color = 'green')
-    
-    plt.tight_layout()
-
-    plt.subplot(5,2,5) 
-    sns.heatmap(nXY, vmin = 0, vmax = 600, cmap = 'coolwarm', cbar_kws = {'label': 'Number of events per XY bin'})
-
-    plt.xlabel("X bins");
-    plt.ylabel("Y bins");
-
-    print('The total number of events is', np.sum(np.sum(nXY)), '\n')
-    print('{:.2f} % of the events are within nXY > {} (nmin)\n'.format(100*np.sum(np.sum(nXY[nXY > nmin]))/np.sum(np.sum(nXY[nXY > 0])),nmin))
-    
-    return fig
-
-    
-       
+  
 def map_drawing(maps):
        
     fig = plt.figure(figsize = (14,10))
@@ -734,7 +655,7 @@ def plot_dst_corrected_with_map(dst, corr_tot, opt_dict):
     plt.subplot(5,2,1)
     a = plt.hist2d(dst.Z, dst.S2e, 80, range = ((0, 350), (7000, 12000)), cmap = 'coolwarm')
     plt.ylabel('S2e (pes)')
-    plt.xlabel('Drift time ($\mu$s)')
+    plt.xlabel('Z (mm)')
     plt.title('Raw energy')
 
     cbar = plt.colorbar(a[3])
@@ -746,7 +667,7 @@ def plot_dst_corrected_with_map(dst, corr_tot, opt_dict):
     plt.subplot(5,2,2)
     a = plt.hist2d(dst.Z, dst.S2e*corr_tot, 80, range = ((0, 350), (7000, 12000)), cmap = 'coolwarm')
     plt.ylabel('S2e (pes)')
-    plt.xlabel('Drift time ($\mu$s)')
+    plt.xlabel('Z (mm)')
     plt.title('Corrected energy')
 
     cbar = plt.colorbar(a[3])
@@ -775,6 +696,26 @@ def plot_dst_corrected_with_map(dst, corr_tot, opt_dict):
     cbar = plt.colorbar(a[3])
     cbar.set_label('Number of events')
     
+    
+    plt.subplot(5,2,9)
+    a = plt.hist2d(dst.Phi, dst.S2e, 80, range = ((np.min(dst.Phi), np.max(dst.Phi)), (9000, 12000)), cmap = 'coolwarm');
+    plt.xlabel('$\phi$ (rad)'); 
+    plt.ylabel('S2e (pes)'); 
+    plt.title('Raw energy')
+    
+    cbar = plt.colorbar(a[3])
+    cbar.set_label('Number of events')
+    
+    
+    plt.subplot(5,2,10)
+    a = plt.hist2d(dst.Phi, dst.S2e*corr_tot, 80, range = ((np.min(dst.Phi), np.max(dst.Phi)), (9000, 12000)), cmap = 'coolwarm');
+    plt.xlabel('$\phi$ (rad)'); 
+    plt.ylabel('S2e (pes)'); 
+    plt.title('Corrected energy')
+    
+    cbar = plt.colorbar(a[3])
+    cbar.set_label('Number of events')
+
     return fig
     
 
@@ -784,9 +725,10 @@ def control_plots_before_maps(dst1, dst2, dst3, plots_dir, opt_dict):
     fig_2, fig_3, fig_4 = plot_s2e_all_before(dst2, opt_dict)
     fig_5 = plot_after(dst3, opt_dict)
     
+    xy_num_bins = int(opt_dict["xy_num_bins"])
     
-    pp = PdfPages(plots_dir + '/control_plots_before_map.pdf')
-
+    
+    pp = PdfPages(plots_dir + '/control_plots_before_map_{}bins.pdf'.format(xy_num_bins))
     pp.savefig(fig_1)
     pp.savefig(fig_2)
     pp.savefig(fig_3)
@@ -804,7 +746,9 @@ def control_plots_after_map(dst, maps, corr_tot, plots_dir, opt_dict):
     fig_3 = time_evolution_plots(maps)
     fig_4 = plot_dst_corrected_with_map(dst, corr_tot, opt_dict)
     
-    pp = PdfPages(plots_dir + '/control_plots_after_map.pdf')
+    xy_num_bins = int(opt_dict["xy_num_bins"])
+    
+    pp = PdfPages(plots_dir + '/control_plots_after_map_{}bins.pdf'.format(xy_num_bins))
 
     pp.savefig(fig_1)
     pp.savefig(fig_2)
